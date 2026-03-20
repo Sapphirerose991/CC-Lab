@@ -7,7 +7,7 @@ let skater3;
 let cursk;
 
 function preload() {
-  mySound = loadSound("living-sketches/spinjump.mp3");
+  mySound = loadSound("spinjump.mp3");
   for (let i = 1; i <= 3; i++) {
     scanned.push(loadImage("sk" + i + ".jpg"));
   }
@@ -25,6 +25,7 @@ function draw() {
   imageMode(CENTER);
   if (mouseIsPressed == true) {
     cursk = scanned[round((frameCount / 10) % 1)];
+    mySound.play();
   } else {
     cursk = scanned[2];
   }
@@ -67,14 +68,4 @@ function eraseBg(imgs, threshold = 10) {
   }
   // this function uses the pixels array
   // we will cover this later in the semester - stay tuned
-}
-
-function mousePressed() {
-  userStartAudio();
-
-  if (mySound.isPlaying()) {
-    mySound.stop();
-  }
-
-  mySound.play();
 }
