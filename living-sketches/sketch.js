@@ -24,6 +24,7 @@ function draw() {
   background(180,200,map(255,0,mouseX,200,255));
   imageMode(CENTER);
   if (mouseIsPressed == true) {
+    userStartAudio();
     cursk = scanned[round((frameCount / 10) % 1)];
     mySound.play();
   } else {
