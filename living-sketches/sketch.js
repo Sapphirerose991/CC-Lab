@@ -25,7 +25,6 @@ function draw() {
   imageMode(CENTER);
   if (mouseIsPressed == true) {
     cursk = scanned[round((frameCount / 10) % 1)];
-    mySound.play();
   } else {
     cursk = scanned[2];
   }
@@ -72,5 +71,10 @@ function eraseBg(imgs, threshold = 10) {
 
 function mousePressed() {
   userStartAudio();
+
+  if (mySound.isPlaying()) {
+    mySound.stop();
+  }
+
   mySound.play();
 }
