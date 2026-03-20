@@ -7,7 +7,7 @@ let skater3;
 let cursk;
 
 function preload() {
-  mySound = loadSound("spinjump.mp3");
+  mySound = loadSound("living-sketches/spinjump.mp3");
   for (let i = 1; i <= 3; i++) {
     scanned.push(loadImage("sk" + i + ".jpg"));
   }
