@@ -7,6 +7,7 @@ let skater3;
 let cursk;
 
 function preload() {
+  mySound = loadSound("spinjump.mp3");
   for (let i = 1; i <= 3; i++) {
     scanned.push(loadImage("sk" + i + ".jpg"));
   }
@@ -24,6 +25,7 @@ function draw() {
   imageMode(CENTER);
   if (mouseIsPressed == true) {
     cursk = scanned[round((frameCount / 10) % 1)];
+    mySound.play();
   } else {
     cursk = scanned[2];
   }
