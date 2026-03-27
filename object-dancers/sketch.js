@@ -11,7 +11,6 @@ console.log("RUNNING THIS SKETCH");
   5. have fun.
 */
 
-let dancer;
 
 function setup() {
   // no adjustments in the setup function needed...
