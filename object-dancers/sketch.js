@@ -1,3 +1,4 @@
+console.log("RUNNING THIS SKETCH");
 /*
   Check our the GOAL and the RULES of this exercise at the bottom of this file.
   
