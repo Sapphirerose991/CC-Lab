@@ -1,3 +1,4 @@
+console.log("RUNNING THIS SKETCH");
 /*
   Check our the GOAL and the RULES of this exercise at the bottom of this file.
   
@@ -10,7 +11,6 @@
   5. have fun.
 */
 
-let dancer;
 
 function setup() {
   // no adjustments in the setup function needed...
