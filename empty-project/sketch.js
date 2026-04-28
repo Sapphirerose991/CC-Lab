@@ -187,7 +187,7 @@ if (end) {
   if (roundCooldown > 0) {
     roundCooldown--;
 
-    fill(255);
+    fill(0);
     textAlign(CENTER);
     textSize(30);
     text("Next round is coming...", width / 2, height / 2);
