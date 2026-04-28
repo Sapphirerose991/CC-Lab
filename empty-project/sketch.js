@@ -257,6 +257,9 @@ if (end) {
         
         leftHP -= 1;
         rightHP -= 1;
+
+        leftREP -= 1;
+        rightREP -= 1;
         
         roundPeace =0;
       }
