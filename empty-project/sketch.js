@@ -77,8 +77,6 @@ class Dove {
 }
 
 
-
-  
   
   
 function preload() {
@@ -120,16 +118,35 @@ function draw() {
   tint(tintR, tintG, tintB, haze);
   image(img, 0, 0, 800, 500);
   
-  if (end) {
-    tint(tintR, tintG, tintB, haze);
-    image(img, 0, 0, 800, 500);
 
-    fill(255);
-    textAlign(CENTER);
-    textSize(40);
-    text(endingText, width / 2, height / 2);
-    return;
+if (end) {
+  if (
+    endingText == "You win the war" ||
+    endingText == "You lose the war"
+  ) {
+    let flash = map(sin(frameCount * 0.15), -1, 1, 80, 180);
+    tint(255, flash, flash, 255);
   }
+
+  else if (endingText == "You make peace") {
+    let glow = map(sin(frameCount * 0.05), -1, 1, 230, 255);
+    tint(glow, glow, glow, 255);
+  }
+
+  else if (endingText == "War Fatigue") {
+    let fade = map(sin(frameCount * 0.03), -1, 1, 90, 140);
+    tint(fade, fade, fade, 255);
+  }
+
+  image(img, 0, 0, 800, 500);
+
+  fill(255);
+  textAlign(CENTER);
+  textSize(40);
+  text(endingText, width / 2, height / 2);
+
+  return;
+}
   // Display 
   if (resolving) {
   resolveTimer--;
@@ -294,18 +311,21 @@ function draw() {
     end = true;
      }
   else if(leftHP==0){
+    tint(tintR, tintG, tintB, haze);
     fill(255,0,0)
     textAlign(CENTER);
     endingText = "You win the war";
     end = true;
      }
   else if(leftREP >=4 &&rightREP>=4 && roundPeace >= 2){
+    tint(tintR, tintG, tintB, haze);
     fill(255);
     textAlign(CENTER);
     endingText = "You make peace";
     end = true;
   }
   else if (rounds >9) {
+    tint(tintR, tintG, tintB, 30);
     fill(255);
     textAlign(CENTER);
     textSize(40);
