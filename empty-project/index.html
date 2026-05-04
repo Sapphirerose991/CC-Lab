@@ -12,7 +12,7 @@
   <script src="lib/p5.js"></script>
   <script src="lib/p5.sound.js"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -23,18 +23,26 @@
     }
 
     h1 {
-      color: red;
-      font-size: 48px;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
+  text-align: center;
+  color: red;
+  font-family: 'Cinzel', serif;
+  font-size: 64px;
+  letter-spacing: 4px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  text-shadow: 
+    0 0 10px rgba(255,0,0,0.6),
+    0 0 20px rgba(255,0,0,0.4);
+}
 
-    .main-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+    .main-wrapper p:first-of-type {
+  text-align: center;
+  font-family: 'Special Elite', cursive;
+  font-size: 22px;
+  color: #ddd;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
 
     #p5-canvas-container {
       display: flex;
@@ -73,14 +81,14 @@
     </div>
 
     <p>Your choice decides your future</p>
-  </div>
-    <p>Project Description</p>
-  </div> 
+<div class="description">
+  <h2>Project Description</h2>
   <p>
-  To people 1000 years later: this is a Sand table simulation to problems you are facing today.
-      You are facing the invasion and have to fight back.
-      After that, you should use your wisdom to beat enemy or try to make peace.
-  <p>
+    To people 1000 years later: this is a Sand table simulation to problems you are facing today. 
+    You are facing the invasion and have to fight back. After that, you should use your wisdom 
+    to beat enemy or try to make peace.
+  </p>
+</div>
     <div id="p5-canvas-container"></div>
   </div>
   
