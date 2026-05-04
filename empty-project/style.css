@@ -1,46 +1,15 @@
+html,
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
-  color: white;
-  font-family: 'Special Elite', monospace;
-  text-align: center;
-}
-
-.title {
-  color: red;
-  font-size: 60px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-#p5-canvas-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
 }
 
 canvas {
   display: block;
-  margin: 0 auto;
 }
 
-.description {
+.main-wrapper {
   max-width: 800px;
-  margin: 40px auto;
-  line-height: 1.6;
-}
-
-.description h2 {
-  margin-bottom: 10px;
-}
-
-.description p {
-  text-align: center;
+  margin: 0 auto;
+  padding: 50px 0;
 }
