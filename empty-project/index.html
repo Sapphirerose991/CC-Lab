@@ -1,41 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>War and Peace</title>
 
-  <link rel="stylesheet" href="style.css">
-
-  <!-- WWII-style font -->
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-
   <script src="lib/p5.js"></script>
   <script src="lib/p5.sound.js"></script>
+
+  <!-- 战争风字体（Google Fonts） -->
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: 'Special Elite', monospace;
+      text-align: center;
+    }
+
+    h1 {
+      color: red;
+      font-size: 48px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .main-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #p5-canvas-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    canvas {
+      display: block;
+      margin: auto;
+    }
+
+    p {
+      width: 60%;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Title -->
-  <h1 class="title">War and Peace</h1>
+  <h1>WAR AND PEACE</h1>
 
-  <!-- Subtitle -->
-  <p class="subtitle">Your choice decides your future</p>
+  <div class="main-wrapper">
 
-  <!-- Canvas container -->
-  <div id="p5-canvas-container"></div>
-
-  <!-- Description -->
-  <div class="description">
-    <h2>Project Description</h2>
     <p>
       To people 1000 years later: this is a Sand table simulation to problems you are facing today.
-      You are facing the invasion and have to fight back. After that, you should use your wisdom
-      to beat enemy or try to make peace.
+      You are facing the invasion and have to fight back.
+      After that, you should use your wisdom to beat enemy or try to make peace.
     </p>
+
+    <div id="p5-canvas-container"></div>
+
   </div>
 
   <script src="sketch.js"></script>
 </body>
+
 </html>
