@@ -5,13 +5,66 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CCLab Project</title>
+  <title>War and Peace</title>
 
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <script src="lib/p5.js"></script>
   <script src="lib/p5.sound.js"></script>
 
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: 'Special Elite', monospace;
+      text-align: center;
+    }
+
+    h1 {
+  text-align: center;
+  color: red;
+  font-family: 'Cinzel', serif;
+  font-size: 64px;
+  letter-spacing: 4px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  text-shadow: 
+    0 0 10px rgba(255,0,0,0.6),
+    0 0 20px rgba(255,0,0,0.4);
+}
+
+    .main-wrapper p:first-of-type {
+  text-align: center;
+  font-family: 'Special Elite', cursive;
+  font-size: 22px;
+  color: #ddd;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+    #p5-canvas-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    canvas {
+      display: block;
+      margin: auto;
+    }
+
+    p {
+      width: 60%;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
   <!-- Alternatively, you can import the library via CDN (Content Delivery Network). -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.3/p5.js"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.3/addons/p5.sound.js"></script> -->
@@ -28,15 +81,18 @@
     </div>
 
     <p>Your choice decides your future</p>
+<div class="description">
+  <h2>Project Description</h2>
+  <p>
+    To people 1000 years later: this is a Sand table simulation to problems you are facing today. 
+    You are facing the invasion and have to fight back. After that, you should use your wisdom 
+    to beat enemy or try to make peace.
+  </p>
+</div>
+    <div id="p5-canvas-container"></div>
   </div>
-    <p>Project Description</p>
-  </div> 
-  To people 1000 years later: this is a sand table simulation to problems you are facing today. 
-  You are facing the invasion and have to fight back. 
-  After that, you should use your wisdom to beat enemy or try to make peace.
-
-  <!-- the script tag below should always be at the bottom, right before the closing body tag -->
+  
   <script src="sketch.js"></script>
 </body>
 
-</html> 
+</html>
