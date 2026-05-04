@@ -335,7 +335,7 @@ function draw() {
     if (rounds === 0) {
       text("Hit WAR to save your country!", width / 2, (2 * height) / 3);
     } else {
-      text("Choose war and peace?", width / 2, (2 * height) / 3);
+      text("Choose war or peace?", width / 2, (2 * height) / 3);
     }
   }
 
