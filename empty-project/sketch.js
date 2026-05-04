@@ -207,8 +207,7 @@ function killRightBird() {
 }
 
 function setup() {
-  let canvas=createCanvas(800, 500);
-  canvas.parent("p5-canvas-container");
+  createCanvas(800, 500);
   haze = 150;
 
   cloud1 = new Cloud(width / 2, height / 2, 300, -1);
@@ -336,7 +335,7 @@ function draw() {
     if (rounds === 0) {
       text("Hit WAR to save your country!", width / 2, (2 * height) / 3);
     } else {
-      text("Choose war or peace?", width / 2, (2 * height) / 3);
+      text("Choose war and peace?", width / 2, (2 * height) / 3);
     }
   }
 
