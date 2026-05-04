@@ -14,13 +14,15 @@ canvas {
   padding: 50px 0;
 }
 .description {
-  text-align: center;
+  max-width: 600px; 
+  margin: 60px auto; 
   color: white;
-  max-width: 800px;
-  margin: 40px auto;
-  line-height: 1.6;
+
+  font-family: 'Special Elite', cursive;
 }
 
 .description p {
   text-align: center;
+  line-height: 1.8;
+  font-size: 20px;
 }
