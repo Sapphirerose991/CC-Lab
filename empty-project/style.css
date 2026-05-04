@@ -7,7 +7,6 @@ body {
   text-align: center;
 }
 
-/* 标题 */
 .title {
   color: red;
   font-size: 60px;
@@ -15,13 +14,11 @@ body {
   margin-bottom: 10px;
 }
 
-/* 副标题 */
 .subtitle {
   font-size: 20px;
   margin-bottom: 20px;
 }
 
-/* Canvas 居中 */
 #p5-canvas-container {
   display: flex;
   justify-content: center;
@@ -29,13 +26,11 @@ body {
   margin: 20px auto;
 }
 
-/* 让 p5 canvas 居中 */
 canvas {
   display: block;
   margin: 0 auto;
 }
 
-/* 描述区 */
 .description {
   max-width: 800px;
   margin: 40px auto;
