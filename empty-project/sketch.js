@@ -208,6 +208,7 @@ function killRightBird() {
 
 function setup() {
   createCanvas(800, 500);
+  canvas.parent("p5-canvas-container");
   haze = 150;
 
   cloud1 = new Cloud(width / 2, height / 2, 300, -1);
