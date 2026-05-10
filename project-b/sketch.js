@@ -34,9 +34,11 @@ let drumStarted = false; //drum
 let cloud1;
 let cloud2;
 
-let hands = [],
-  video,
-  handPose;
+//let hands = [],
+//let video,
+//let handPose;
+
+//birds
 
 class Hawk {
   constructor(x, y, s, initialSpeed) {
@@ -116,7 +118,6 @@ class Mockingbird {
       tint(150);
       image(imgbird, -10, -10, 70, 70);
     }
-
     noTint();
     pop();
   }
@@ -188,9 +189,7 @@ function killLeftBird() {
   if (leftBirds.length > 0) {
     let nBirds = leftBirds.length;
     let lastBird = nBirds - 1;
-
     let drop = leftBirds[lastBird];
-
     drop.die();
   }
 }
@@ -199,9 +198,7 @@ function killRightBird() {
   if (rightBirds.length > 0) {
     let nBirds = rightBirds.length;
     let lastBird = nBirds - 1;
-
     let drop = rightBirds[lastBird];
-
     drop.die();
   }
 }
@@ -217,25 +214,29 @@ function setup() {
 
 function draw() {
   background(220);
-
+  
+//drum not triggered before the intro
   if (intro) {
     initialpage();
     controlDrum(false);
     return;
   }
 
-  let marks = "";
+  let roundmarks = "";
   for (let i = 0; i < rounds + 1; i++) {
-    marks += "| ";
+    roundmarks += "| ";
   }
-  text(marks, width / 2, 30);
+  text(roundmarks, width / 2, 30);
 
+  //draw Mockingbirds
   drawStats(30, 30, leftHP, leftREP, leftBirds);
   drawStats(width - 150, 30, rightHP, rightREP, rightBirds);
   tint(tintR, tintG, tintB, haze);
   image(img, 0, 0, 800, 500);
   noTint();
-
+  
+  
+//ending scenarios
   if (end) {
     controlDrum(false);
     resolveTimer++;
@@ -246,11 +247,7 @@ function draw() {
       let flash = map(sin(frameCount * 0.15), -1, 1, 80, 180);
       tint(255, flash, flash, 255);
     } else if (endingText == "You lose the war") {
-      if (resolveTimer < 10) {
-        background(255);
-      } else {
-        background(0);
-      }
+      tint(0);
     } else if (endingText == "You make peace") {
       /*for (let i = 0; i =20; i++) {
         leftBirds.push(new dove(80, 50, true));
@@ -275,23 +272,23 @@ function draw() {
     pop();
     return;
   }
-  // Display
+  // Display and movements
   if (resolving) {
     resolveTimer--;
 
-    if (leftAnimal.type === "dove" && rightAnimal?.type === "dove") {
+    if (leftAnimal.type == "dove" && rightAnimal.type == "dove") {
       leftAnimal.x -= 1;
       rightAnimal.x += 1;
     }
 
-    if (leftAnimal.type === "hawk" && rightAnimal?.type === "hawk") {
+    if (leftAnimal.type == "hawk" && rightAnimal.type == "hawk") {
       leftAnimal.display();
       rightAnimal.display();
-    } else if (leftAnimal.type === "hawk" && rightAnimal?.type === "dove") {
+    } else if (leftAnimal.type == "hawk" && rightAnimal.type == "dove") {
       leftAnimal.display();
-    } else if (leftAnimal.type === "dove" && rightAnimal?.type === "hawk") {
+    } else if (leftAnimal.type == "dove" && rightAnimal.type == "hawk") {
       rightAnimal.display();
-    } else if (leftAnimal.type === "dove" && rightAnimal?.type === "dove") {
+    } else if (leftAnimal.type =="dove" && rightAnimal.type == "dove") {
       leftAnimal.display();
       rightAnimal.display();
     }
@@ -299,13 +296,13 @@ function draw() {
     if (resolveTimer <= 0) {
       resolving = false;
       rightAnimal = null;
-      roundCooldown = 60 * 3;
+      roundCooldown = 180;
     }
 
     return;
   }
 
-  // Cooling
+  // Cooling rounds
   if (roundCooldown > 0) {
     roundCooldown--;
     controlDrum(false);
@@ -320,22 +317,21 @@ function draw() {
         telegram.stop();
       }, 3000);
     }
-
-    if (roundCooldown === 0) {
+    if (roundCooldown == 0) {
       setupRound();
     }
-
     return;
   }
   controlDrum(true);
-  if (rightAnimal === null) {
+  if (rightAnimal == null) {
     fill(255);
     textAlign(CENTER);
     textSize(24);
-    if (rounds === 0) {
+    //beginning
+    if (rounds == 0) {
       text("Hit WAR to save your country!", width / 2, (2 * height) / 3);
     } else {
-      text("Choose war and peace?", width / 2, (2 * height) / 3);
+      text("Choose war or peace?", width / 2, (2 * height) / 3);
     }
   }
 
@@ -356,38 +352,29 @@ function draw() {
       fill(255);
       text("PEACE", width / 2, 100);
     }
-
     showTextTimer--;
   }
 
-  //  left and right animal
-
+  //  left and right animal collide
   leftAnimal.display();
-
   if (rightAnimal !== null) {
     leftAnimal.move();
     rightAnimal.move();
     rightAnimal.display();
-
     let d = dist(leftAnimal.x, leftAnimal.y, rightAnimal.x, rightAnimal.y);
-
     if (d < leftAnimal.s / 2 + rightAnimal.s / 2) {
       // Hawk VS Hawk: haze
       if (leftAnimal.type === "hawk" && rightAnimal.type === "hawk") {
         gunshot.play();
-
         tintG -= 50;
         tintB -= 50;
-
         tintR = max(100, tintR);
         tintG = max(100, tintG);
         tintB = max(100, tintB);
-
         if (rounds == 0) {
           leftHP -= 1;
           killLeftBird();
           leftREP -= 3;
-
           rightHP -= 2;
           killRightBird();
           killRightBird();
@@ -396,7 +383,6 @@ function draw() {
           leftHP -= 1;
           rightHP -= 1;
           killLeftBird();
-
           leftREP -= 1;
           rightREP -= 1;
           killRightBird();
@@ -412,10 +398,8 @@ function draw() {
         bleeding.play();
         tintG -= 50;
         tintB -= 50;
-
         tintG = max(0, tintG);
         tintB = max(0, tintB);
-
         roundPeace = 0;
         if (leftAnimal.type === "hawk" && rightAnimal.type === "dove") {
           leftREP -= 2;
@@ -435,18 +419,15 @@ function draw() {
         tintR += 20;
         tintG += 20;
         tintB += 20;
-
         tintR = min(255, tintR);
         tintG = min(255, tintG);
         tintB = min(255, tintB);
         roundPeace += 1;
-
         leftREP += 1;
         rightREP += 1;
       }
 
       rounds += 1;
-
       //moral collaspe
       if (leftREP <= 0) {
         leftHP -= 1;
@@ -455,7 +436,6 @@ function draw() {
       if (rightREP <= 0) {
         rightHP -= 1;
       }
-
       resolving = true;
       resolveTimer = 180;
     }
@@ -495,18 +475,18 @@ function draw() {
 
 // Hawk or Dove Input
 function keyPressed() {
-  if (keyCode === BACKSPACE) {
+  if (keyCode == BACKSPACE) {
     inputText = inputText.slice(0, -1);
   } else {
     inputText += key.toLowerCase();
   }
 
-  if (inputText === "war") {
+  if (inputText == "war") {
     currentCommand = "war";
     showTextTimer = 120;
     rightAnimal = new Hawk(width - 100, height / 2, 100, -1);
     inputText = "";
-  } else if (inputText === "peace") {
+  } else if (inputText == "peace") {
     currentCommand = "peace";
     showTextTimer = 120;
     rightAnimal = new Dove(width - 100, height / 2, 100, -1);
@@ -514,16 +494,15 @@ function keyPressed() {
   }
 }
 
-//HP and REP bar
-
+//HP and REP birds
 function drawStats(x, y, HP, rep, Birds) {
-  // HP green circles
+ 
   for (let b of Birds) {
     b.move();
     b.display();
   }
 
-  // REP red squares
+  // REP red squares as reputation
   for (let i = 0; i < rep; i++) {
     fill(255, 0, 0);
     rect(x + i * 18, y + 18, 12, 12);
@@ -532,7 +511,10 @@ function drawStats(x, y, HP, rep, Birds) {
 
 function initialpage() {
   //Instructions
-
+  if (!alarmStarted) {
+    alarm.loop();
+    alarmStarted = true;
+  }
   background(map(sin(frameCount / 50), -1, 1, 80, 180));
   textAlign(CENTER);
   textSize(18);
@@ -571,7 +553,6 @@ function initialpage() {
     mouseY <= height / 2 + 150 &&
     mouseY >= height / 2 + 100
   ) {
-    alarm.loop();
     page2 = true;
     page2Timer = 300;
   }
@@ -623,7 +604,7 @@ function controlDrum(drumPlay) {
     }
   }
 }
-
+//Cloud and Hands display
 class Cloud {
   constructor(x, y, s, d) {
     this.x = x;
