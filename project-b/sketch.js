@@ -511,10 +511,7 @@ function drawStats(x, y, HP, rep, Birds) {
 
 function initialpage() {
   //Instructions
-  if (!alarmStarted) {
-    alarm.loop();
-    alarmStarted = true;
-  }
+  
   background(map(sin(frameCount / 50), -1, 1, 80, 180));
   textAlign(CENTER);
   textSize(18);
@@ -553,6 +550,7 @@ function initialpage() {
     mouseY <= height / 2 + 150 &&
     mouseY >= height / 2 + 100
   ) {
+    alarm.loop();
     page2 = true;
     page2Timer = 300;
   }
